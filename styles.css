@@ -1,5 +1,5 @@
 *{
-    border: 2px solid red;
+    /* border: 2px solid red; */
     margin: 0;
     padding: 0;
 }
@@ -10,10 +10,10 @@ body{
 }
 
 .sidebar{
-    grid-row: 1/6;
     display: grid;
     gap: 10vh;
     place-content: start stretch;
+    grid-row: 1/7;
 }
 
 .sidebar>.dashboard-options, .sidebar>.profile-options {
@@ -22,7 +22,8 @@ body{
 }
 
 .projects{
-    grid-area: 3/2/6/3;
+    grid-column: 2/3;
+    grid-row-end: span 7;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 15px;
@@ -30,46 +31,141 @@ body{
 }
 
 .projects-title{
-    grid-area: 2/2/3/3;
-    /* grid-column: 2/3; */
+    grid-column: 2/3;
 }
 
 .header{
     grid-column: 2/4;
     display: grid;
-    grid-template-rows: 1fr 1fr;
 }
 
 .header>.search-bar{
     display: grid;
     grid-template-columns: 1fr 15fr 4fr 1fr 4fr;
+    padding: 15px 25px;
+    padding-bottom: 0;
 }
 
 .header .controls{
     display: grid;
     grid-template-columns: 2fr 15fr 3fr 3fr 3fr;
+    padding: 15px 25px;
 }
 
 .announcements{
+    grid-column: 3/4;;
     display: grid;
     padding: 15px;
-    gap: 10px;
     grid-template-columns: 1fr;
+    margin-right: 15px;
 }
 
 .announcements-title{
-    grid-area: 2/3/3/4;
-    /* grid-column: 3/4; */
+    grid-column: 3/4;
 }
 
 .trending-title{
-    /* grid-area: 4/3/5/4; */
     grid-column: 3/4;
 }
 
 .trending{
     grid-column: 3/4;
     display: grid;
-    gap: 10px;
-    padding: 10px;
+    /* gap: 10px; */
+    padding: 20px 0px;
+    margin-right: 15px;
+}
+
+.search-bar .search-icon{
+    place-self: center center;
+    height: 20px;
+}
+
+.search-bar .search{
+    border-radius: 15px;
+    place-self: center stretch;
+    height: 20px;
+    border: 1px solid black;
+}
+
+.search-bar .notifications-icon{
+    height: 20px;
+    place-self: center end;
+}
+
+.search-bar .logo{
+    height: 41px;
+    place-self: center center;
+}
+
+.search-bar .profile-name{
+    place-self: center stretch;
+}
+
+button{
+    border-radius: 15px;
+    place-self: center;
+    width: 80px;
+    height: 30px;
+}
+
+.sidebar .profile-options img,
+.sidebar .dashboard-options img{
+    height: 24px;
+}
+
+.profile-options>div,
+.dashboard-options>div{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap:15px;
+    padding-left: 20px;
+}
+
+.sidebar .dashboard img{
+    height: 42px;
+}
+
+.sidebar>.dashboard{
+    display: flex;
+    align-items: center;
+    gap:12px;
+    padding-left: 12px;
+}
+
+.controls img{
+    place-self: center center;
+    /* background-color: aquamarine; */
+}
+
+.controls>div{
+    place-self: center start;
+    padding-left: 10px;
+}
+
+.trending img{
+    height: 30px;
+}
+
+.trending>div{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px 10px;
+}
+
+.announcements>div{
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    padding: 10px 5px;
+}
+
+.announcements .last-announcement{
+    border-bottom: 0;
+}
+
+.announcements>div>p{
+    font-size: 12px;
 }
