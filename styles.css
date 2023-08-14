@@ -1,7 +1,7 @@
 *{
-    /* border: 2px solid red; */
     margin: 0;
     padding: 0;
+    border: 2px solid red;
 }
 
 body{
@@ -26,12 +26,14 @@ body{
     grid-row-end: span 7;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 15px;
+    gap: 15px 15px;
     padding: 15px;
 }
 
 .projects-title{
+    padding-top: 20px;
     grid-column: 2/3;
+    padding-left: 15px;
 }
 
 .header{
@@ -61,7 +63,9 @@ body{
 }
 
 .announcements-title{
+    padding-top: 20px;
     grid-column: 3/4;
+    padding-left: 15px;
 }
 
 .trending-title{
@@ -86,6 +90,8 @@ body{
     place-self: center stretch;
     height: 20px;
     border: 1px solid black;
+    padding-left: 10px;
+    font-size: 20px;
 }
 
 .search-bar .notifications-icon{
@@ -168,4 +174,30 @@ button{
 
 .announcements>div>p{
     font-size: 12px;
+}
+
+.projects .card{
+    border-radius: 15px;
+    border-left: 8px solid orange;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 900;
+    display: flex;
+    flex-direction: column;
+    height: 160px;
+}
+
+.projects .card p{
+    font-size: 15px;
+    font-weight: 100;
+}
+
+.projects .card .icons{
+    display: flex;
+    justify-content: end;
+    gap: 20px;
+}
+
+.projects .card img{
+    height: 20px;
 }
