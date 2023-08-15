@@ -2,7 +2,11 @@
 
 :root{
     --background-color: rgb(225, 221, 221);
-}
+    --sidebar-background-color: #0284c7;
+    --sidebar-text-color: #f0f9ff;
+    --general-background-color: white;
+    --card-left-border-color: orange;
+}  
 
 *{
     margin: 0;
@@ -12,19 +16,21 @@
 
 body{
     display: grid;
-    grid-template-columns: 1fr 2.5fr 1fr;
+    grid-template-columns: 0.7fr 3fr 1fr;
     font-family: 'Roboto Condensed', sans-serif;
     background-color: var(--background-color);
 }
+
+/*------------------------------------Sidebar related styles---------------------------------- */
 
 .sidebar{
     display: grid;
     gap: 10vh;
     place-content: start stretch;
     grid-row: 1/10;
-    background-color: #0284c7;
+    background-color: var(--sidebar-background-color);
     font-weight: 900;
-    color: #f0f9ff;
+    color: var(--sidebar-text-color);
 }
 
 .sidebar>.dashboard-options, .sidebar>.profile-options {
@@ -32,29 +38,43 @@ body{
     gap: 3vh;
 }
 
-.projects{
-    grid-column: 2/3;
-    grid-row-end: span 7;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px 15px;
-    padding: 15px;
+.sidebar .profile-options img,
+.sidebar .dashboard-options img{
+    height: 24px;
+    filter: invert(1);
 }
 
-.projects-title{
-    padding-top: 20px;
-    grid-column: 2/3;
-    padding-left: 15px;
-    font-weight: 900;
+.sidebar .dashboard img{
+    height: 42px;
+    filter: invert(1);
 }
+
+.sidebar .dashboard{
+    display: flex;
+    align-items: center;
+    gap:12px;
+    padding-left: 12px;
+    padding-top: 20px;
+}
+
+.profile-options>div,
+.dashboard-options>div{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap:15px;
+    padding-left: 20px;
+}
+
+/*------------------------------------Header related styles---------------------------------- */
 
 .header{
     grid-column: 2/4;
     display: grid;
-    background-color: white;
+    background-color: var(--general-background-color);
 }
 
-.header>.search-bar{
+.header .search-bar{
     display: grid;
     grid-template-columns: 1fr 15fr 4fr 1fr 4fr;
     padding: 15px 25px;
@@ -65,38 +85,6 @@ body{
     display: grid;
     grid-template-columns: 2fr 15fr 3fr 3fr 3fr;
     padding: 15px 25px;
-}
-
-.announcements{
-    grid-column: 3/4;;
-    display: grid;
-    padding: 15px;
-    grid-template-columns: 1fr;
-    margin-right: 15px;
-    border-radius: 15px;
-    background-color: white;
-}
-
-.announcements-title{
-    padding-top: 20px;
-    grid-column: 3/4;
-    padding-left: 15px;
-    font-weight: 900;
-}
-
-.trending-title{
-    grid-column: 3/4;
-    padding-top: 20px;
-    font-weight: 900;
-}
-
-.trending{
-    grid-column: 3/4;
-    display: grid;
-    border-radius: 15px;
-    padding: 20px 0px;
-    margin-right: 15px;
-    background-color: white;
 }
 
 .search-bar .search-icon{
@@ -122,11 +110,15 @@ body{
 .search-bar .logo{
     height: 41px;
     place-self: center center;
-    padding-right: 15px;
+    margin-right: 15px;
+    border: 4px solid black;
+    border-radius: 50%;
 }
 
 .search-bar .profile-name{
     place-self: center stretch;
+    font-size: 24px;
+    font-weight: 700;
 }
 
 button{
@@ -134,39 +126,20 @@ button{
     place-self: center;
     width: 100px;
     height: 30px;
-    background-color: #0284c7;
-    color: white;
+    background-color: var(--sidebar-background-color);
+    color: var(--general-background-color);
     font-weight: 900;
 }
 
-.sidebar .profile-options img,
-.sidebar .dashboard-options img{
-    height: 24px;
-}
-
-.profile-options>div,
-.dashboard-options>div{
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    gap:15px;
-    padding-left: 20px;
-}
-
-.sidebar .dashboard img{
-    height: 42px;
-}
-
-.sidebar>.dashboard{
-    display: flex;
-    align-items: center;
-    gap:12px;
-    padding-left: 12px;
+button:hover{
+    transform: scale(1.1);
 }
 
 .controls img{
     place-self: center center;
     /* background-color: aquamarine; */
+    border: 4px solid black;
+    border-radius: 50%;
 }
 
 .controls>div{
@@ -174,46 +147,22 @@ button{
     padding-left: 10px;
 }
 
-.trending img{
-    height: 30px;
-}
+/*------------------------------------Project related styles---------------------------------- */
 
-.trending>div{
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 10px 10px;
-    font-size: 20px;
-}
-
-.announcements>div{
-    font-size: 15px;
-    font-weight: bold;
-    border-bottom: 2px solid var(--background-color);
-    padding: 10px 5px;
-}
-
-.announcements .last-announcement{
-    border-bottom: 0;
-}
-
-.announcements>div>p{
-    font-size: 12px;
-}
-
-.projects .card{
-    border-radius: 15px;
-    border-left: 8px solid orange;
-    padding: 20px;
-    font-size: 18px;
+.projects-title{
+    padding-top: 20px;
+    grid-column: 2/3;
+    padding-left: 15px;
     font-weight: 900;
-    display: flex;
-    flex-direction: column;
-    height: 160px;
-    /* max-width: 300px; */
-    max-height: 200px;
-    max-width: 370px;
-    background-color: white;
+}
+
+.projects{
+    grid-column: 2/3;
+    grid-row-end: span 7;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px 15px;
+    padding: 15px;
 }
 
 .projects .card p{
@@ -231,24 +180,121 @@ button{
     height: 20px;
 }
 
+.projects .card{
+    border-radius: 15px;
+    border-left: 8px solid var(--card-left-border-color);
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 900;
+    display: flex;
+    flex-direction: column;
+    height: 160px;
+    /* max-width: 300px; */
+    max-height: 200px;
+    max-width: 370px;
+    background-color: var(--general-background-color);
+    transition: 0.2s ;
+}
+
+.projects .card:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+/*------------------------------------Announcement related styles---------------------------------- */
+
+.announcements-title{
+    padding-top: 20px;
+    grid-column: 3/4;
+    padding-left: 15px;
+    font-weight: 900;
+}
+
+.announcements{
+    grid-column: 3/4;;
+    display: grid;
+    padding: 15px;
+    grid-template-columns: 1fr;
+    margin-right: 15px;
+    border-radius: 15px;
+    background-color: var(--general-background-color);
+    margin-top: 15px;
+    margin-bottom: 15px;
+    transition: 0.2s;
+}
+
+.announcements>div{
+    font-size: 15px;
+    font-weight: bold;
+    border-bottom: 2px solid var(--background-color);
+    padding: 10px 5px;
+}
+
+.announcements .last-announcement{
+    border-bottom: 0;
+}
+
+.announcements>div>p{
+    font-size: 12px;
+    font-weight: 100;
+}
+
+.announcements:hover{
+    transform: scale(1.04);
+    cursor: pointer;
+}
+
+/*------------------------------------Trending related styles---------------------------------- */
+
+.trending-title{
+    grid-column: 3/4;
+    padding-top: 20px;
+    font-weight: 900;
+}
+
+.trending{
+    grid-column: 3/4;
+    display: grid;
+    border-radius: 15px;
+    padding: 20px 0px;
+    margin-right: 15px;
+    background-color: var(--general-background-color);
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.trending img{
+    height: 40px;
+}
+
+.trending>div{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 30px;
+    gap: 15px;
+    font-size: 20px;
+    transition: 0.2s;
+}
+
+.trending>div:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.trending .col2{
+    font-size: 20px;
+    font-weight: bold;
+}
+
 .trending p{
     font-size: 15px;
+    font-weight: 100;
 }
+
+/*-------------------------------------------Common styles--------------------------------------- */
 
 .header, .announcements, .trending, .card, .sidebar{
     box-shadow: 5px 7px 7px rgb(187, 187, 187);
 }
 
-.dashboard{
-    padding-top: 20px;
-}
-
-.announcements{
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-
-.trending{
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
